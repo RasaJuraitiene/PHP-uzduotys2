@@ -25,7 +25,8 @@ $random_index = rand(0, $count_index -1);
 
 $h1 = 'Kas buvo penktadieni?!';
 $h2 = 'Rasos prisiminimai:';
-$h3 = "$random_index $my_memories[$random_index]";
+//$h3 = "$random_index $my_memories[$random_index]";
+$h3 = 'Draugo prisiminimai:'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +42,14 @@ $h3 = "$random_index $my_memories[$random_index]";
                 <li><?php print $value; ?></li>
             <?php endforeach; ?>
         </ul>
+<!--        <h3>--><?php //print $h3; ?><!--</h3>-->
+
         <h3><?php print $h3; ?></h3>
+        <ul>
+            <?php foreach ($friend_memories as $value): ?>
+                <li><?php print $value; ?></li>
+            <?php endforeach; ?>
+        </ul>
 
     </body>
 </html>
