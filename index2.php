@@ -9,9 +9,19 @@ $my_memories = [
     'bemieges_naktys',
     'poilsis'
 ];
+$friend_memories = [
+    'baras',
+    'popkornai',
+    'miestas',
+    'draugai',
+    'penktadienio_filmas',
+    'alcoholic_drinks',
+    'bemieges_naktys',
+    'poilsis'
+];
 
 $count_index = count($my_memories);
-$random_index = rand(0, $count_index);
+$random_index = rand(0, $count_index -1);
 
 $h1 = 'Kas buvo penktadieni?!';
 $h2 = 'Rasos prisiminimai:';
