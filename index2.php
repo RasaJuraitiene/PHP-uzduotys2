@@ -9,6 +9,7 @@ $my_memories = [
     'bemieges_naktys',
     'poilsis'
 ];
+
 $count_index = count($my_memories);
 $random_index = rand(0, $count_index);
 
