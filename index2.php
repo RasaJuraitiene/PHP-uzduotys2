@@ -1,32 +1,47 @@
 <?php
-$my_memories = [
-    'darbas',
-    'popkornai',
-    'namai',
-    'vaikai',
-    'penktadienio_filmas',
-    'non-alcoholic_drinks',
-    'bemieges_naktys',
-    'poilsis'
+$zodziai = [
+    'Kaip',
+    'kartais',
+    'užknisa',
+    'kai',
+    'net',
+    'nesupranti',
+    'užduoties',
+    'o',
+    'reikia',
+    'ja',
+    'atlikti',
+    'ir',
+    'padaryti',
+    'ja',
+    'teisingai',
+    'ir',
+    'greitai',
+    'greiciau',
+    'uz',
+    'kitus'
 ];
-$friend_memories = [
-    'baras',
-    'popkornai',
-    'miestas',
-    'draugai',
-    'penktadienio_filmas',
-    'alcoholic_drinks',
-    'bemieges_naktys',
-    'poilsis'
-];
+$rasinys = '';
+//$count_index = count($zodziai);
+//$random_index = rand(0, $count_index -1);
 
-$count_index = count($my_memories);
-$random_index = rand(0, $count_index -1);
+for($i = 0; $i < rand(100, 300); $i++) {
+    $random_word = $zodziai[(rand(0, count($zodziai) -1))];
+    $rasinys .= " $random_word";
+}
 
-$h1 = 'Kas buvo penktadieni?!';
-$h2 = 'Rasos prisiminimai:';
-//$h3 = "$random_index $my_memories[$random_index]";
-$h3 = 'Draugo prisiminimai:'
+
+//foreach ($my_memories as $my_memory) {
+//    if (in_array($my_memories, $friend_memories)) {
+//        if(!in_array($my_memory, $common_memories))
+//        $common_memories[] = $my_memory;
+//    }
+//}
+
+
+$h1 = 'Lietuvių egzaminas';
+$p = "$rasinys ";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,20 +51,20 @@ $h3 = 'Draugo prisiminimai:'
     <body>
 
         <h1><?php print $h1; ?></h1>
-        <h2><?php print $h2; ?></h2>
-        <ul>
-            <?php foreach ($my_memories as $value): ?>
-                <li><?php print $value; ?></li>
-            <?php endforeach; ?>
-        </ul>
+        <p><?php print $p; ?></p>
+<!--        <ul>-->
+<!--            --><?php //foreach ($my_memories as $value): ?>
+<!--                <li>--><?php //print $value; ?><!--</li>-->
+<!--            --><?php //endforeach; ?>
+<!--        </ul>-->
+<!--       <h3>--><?php ////print $h3; ?><!--</h3>-->
+<!---->
 <!--        <h3>--><?php //print $h3; ?><!--</h3>-->
-
-        <h3><?php print $h3; ?></h3>
-        <ul>
-            <?php foreach ($friend_memories as $value): ?>
-                <li><?php print $value; ?></li>
-            <?php endforeach; ?>
-        </ul>
+<!--        <ul>-->
+<!--            --><?php //foreach ($friend_memories as $value): ?>
+<!--                <li>--><?php //print $value; ?><!--</li>-->
+<!--            --><?php //endforeach; ?>
+<!--        </ul>-->
 
     </body>
 </html>
