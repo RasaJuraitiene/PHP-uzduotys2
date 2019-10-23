@@ -3,7 +3,7 @@ $drinks = [
     [
         "name" => "Cenote™  Blanco",
         "price_stock" => 64,
-        "discount" => 0,
+        "discount" => 10,
         "img" => "http://www.bennet.lt/cache/images/e4a6856510efef3ffec97f63b196f8bf.JPG",
     ],
     [
@@ -15,7 +15,7 @@ $drinks = [
     [
         "name" => "GASPADORIŲ TAMSUSIS 8",
         "price_stock" => 1.45,
-        "discount" => 7,
+        "discount" => 0,
         "img" => "http://www.bennet.lt/cache/images/6a7e71f7c7d57f53ff8ceea25efd9c30.jpg",
     ],
     [
@@ -25,6 +25,10 @@ $drinks = [
         "img" => "http://www.bennet.lt/cache/images/498bc9661b9eeb6d208b4291e5468930.JPG",
     ],
 ];
+
+foreach ($drinks as $key => $value){
+    $drinks[$key]["price_retail"] = $drinks[$key]["price_stock"]- $drinks[$key]["price_stock"] * $drinks[$key]["discount"]/100;
+}
 
 var_dump ($drinks);
 
