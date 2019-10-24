@@ -26,11 +26,18 @@ $drinks = [
     ],
 ];
 
-foreach ($drinks as $key => $value){
-    $drinks[$key]['price_retail'] = number_format((float)($value['price_stock']- $value['price_stock'] * $value['discount']/100), 2);
+foreach ($drinks as $key => $value) {
+    $drinks[$key]['price_retail'] = number_format((float)($value['price_stock'] - $value['price_stock'] * $value['discount'] / 100), 2);
     $drinks[$key]['price_retail_display'] = "&euro;" . $drinks[$key]['price_retail'];
     $drinks[$key]['price_stock_display'] = "&euro;" . number_format($drinks[$key]['price_stock'], 2);
+
+    if (rand(0, 1) > 0){
+        $drinks[$key]['in_stock'] = 1;
+    }else{
+        $drinks[$key]['in_stock'] = 'out of stock';
+    }
 }
+var_dump($drinks)
 ?>
 <!DOCTYPE html>
 <html lang="en">
