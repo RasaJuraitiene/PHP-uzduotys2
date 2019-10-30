@@ -1,81 +1,89 @@
 <?php
-class Person {
-    public $name;
-    public $surname;
-    public $id;
 
-    function set_all($name, $surname, $id) {
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->id = $id;
+$cars =
+[
+$car = new Cars('Audi', 'Audi A6', 'red', 13000, 2015),
+$car2 = new Cars('Audi', 'Audi Q5', 'brown', 33000, 2016),
+$car3 = new Cars('Bmw', 'Bmw X5', 'blue', 8000, 2012),
+$car4 = new Cars('Bmw', 'Bmw M3', 'black', 23000, 2014),
+];
+
+
+class Cars
+{
+    public $brand;
+    public $model;
+    public $color;
+    public $price;
+    public $year;
+    public $cars;
+
+    function __construct($brand, $model, $color, $price, $year)
+    {
+        $this->brand = $brand;
+        $this->model = $model;
+        $this->color = $color;
+        $this->price = $price;
+        $this->year = $year;
     }
-    function set_name($name) {
-        $this->name = $name;
+
+    function get_all_info()
+    {
+        return $this->brand . ' ' . $this->model . ' ' . $this->color . ' ' . $this->price . ' ' . $this->year;
     }
-    function set_surname($surname) {
-        $this->surname = $surname;
-    }
-    function set_id($id) {
-        $this->id = $id;
-    }
-    function get_name() {
-        return $this->name;
-    }
-    function get_surname() {
-        return $this->surname;
-    }
-    function get_id() {
-        return $this->id;
-    }
-    function get_table_row() {
-        return "
-            <tr>
-                <td>" . $this->name . "</td>
-                <td>" . $this->surname . "</td>
-                <td>" . $this->id . "</td>
-            </tr>
-        ";
+
+    function get_all_cars($array)
+    {
+        $result = '';
+        foreach ($array as $car) {
+            foreach ($car as $stat => $value) {
+                if ($stat == 'cars') {
+                    continue;
+                }
+                $result .= $stat . ': ' . $value . '<br>';
+            }
+            $result .= '<br>';
+        }
+        return $result;
     }
 }
-$pirmas = new Person();
-$pirmas2 = new Person();
-$pirmas->set_all('Petras', 'Petraitis', 36845214452);
-$pirmas2->set_all('Jonas', 'Jonaitis', 3678908755);
+
+print $car->get_all_cars($cars);
 
 ?>
 
 <html>
 <head>
     <title>Person</title>
-    <style>
-        section {
-            width: 80vw;
-            height: 100vh;
-            margin: 0 auto;
-        }
-
-        table, th, td   {
-            border: 2px solid black;
-            border-collapse: collapse;
-        }
-    </style>
+<!--    <style>-->
+<!--        section {-->
+<!--            width: 80vw;-->
+<!--            height: 100vh;-->
+<!--            margin: 0 auto;-->
+<!--        }-->
+<!---->
+<!--        table, th, td   {-->
+<!--            border: 2px solid black;-->
+<!--            border-collapse: collapse;-->
+<!--        }-->
+<!--    </style>-->
 </head>
 <body>
-<section>
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>ID</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php print $pirmas->get_table_row(); ?>
-        <?php print $pirmas2->get_table_row(); ?>
-        </tbody>
-    </table>
-</section>
+<!--<section>-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Name</th>-->
+<!--            <th>Surname</th>-->
+<!--            <th>ID</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        --><?php //print $pirmas->get_table_row(); ?>
+<!--        --><?php //print $pirmas2->get_table_row(); ?>
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</section>-->
 </body>
 </html>
 
