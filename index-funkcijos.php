@@ -1,120 +1,170 @@
 <?php
 
-$zoo =
-[
-$gyvunas = new Zoo('gyvunas','zebras', 'juoda_balta' ),
-$paukstis = new Zoo('paukstis', 'pelikanas', 'rozinis'),
-$gyvunas2 = new Zoo('gyvunas', 'liutas', 'rudas'),
-$paukstis2 = new Zoo('paukstis', 'peleda', 'balta'),
-];
-
+//include "app/php/global.php";
+//
+//include "app/views/layouts/head.php";
+//
+//include "app/views/layouts/navigation.php";
 
 class Zoo
+
 {
-    public $tipas;
-    public $rusis;
-    public $spalva;
 
-    function __construct($tipas, $rusis, $spalva)
+    public $type;
+
+    public $race;
+
+    public $color;
+
+    public $size;
+
+    function __construct($type, $race, $color, $size)
+
     {
-        $this->tipas = $tipas;
-        $this->rusis = $rusis;
-        $this->spalva = $spalva;
+
+        $this->type = $type;
+
+        $this->race = $race;
+
+        $this->color = $color;
+
+        $this->size = $size;
+
     }
 
-    function get_all_info()
-    {
-        return $this->tipas . ' ' . $this->rusis . ' ' . $this->spalva;
-    }
+}
 
-    function get_item_tipas()
-    {
-        return $this->tipas;
-    }
-    function get_item_rusis()
-    {
-        return $this->rusis;
-    }
-    function get_item_spalva()
-    {
-        return $this->spalva;
-    }
+$animals = [
 
-    function get_all_gyvunai($zoo)
-    {
-        $card1 = [];
-        $card2 = [];
+    $animal_1 = new Zoo ('Bird', 'Eagle', 'grey', 'small'),
 
-        foreach ($zoo as $objektas) {
-            if ($objektas->get_item_tipas() == 'gyvunas') {
-                $card1[] = $objektas;
-            } else {
-                $card2[] = $objektas;
-            }
+    $animal_2 = new Zoo ('Bird', 'Hawk', 'brown', 'medium'),
+
+    $animal_3 = new Zoo ('Fish', 'Salmon', 'orange', 'small'),
+
+    $animal_4 = new Zoo ('Fish', 'Whale', 'blue', 'big'),
+
+];
+
+function displayBirdsRow($array)
+
+{
+
+    foreach ($array as $key => $value) {
+
+        if ($value->type == 'Bird') {
+
+            print "
+
+<tr>
+
+<td>" . $value->type . "</td>
+
+<td>" . $value->race . "</td>
+
+<td>" . $value->color . "</td>
+
+<td>" . $value->size . "</td>
+
+</tr>
+
+";
+
         }
-        return[
-            'gyvunas'=>$card1,
-            'paukstis'=>$card2,
-        ];
-    }
-}
-    function get_table($array, $key)
-    {
-        foreach ($array[$key] as $value){
-         print '
-            <tr>
-                <td>' . $value->get_item_tipas() . '</td>
-                <td>' . $value->get_item_rusis() . '</td>
-                <td>' . $value->get_item_spalva() . '</td>
-            </tr>
-        ';
-           }
-}
-$zoo = $gyvunas->get_all_gyvunai($zoo);
 
-//    function get_all_cars($array)
-//    {
-//        $result = '';
-//        foreach ($array as $car) {
-//            foreach ($car as $stat => $value) {
-//                if ($stat == 'cars') {
-//                    continue;
-//                }
-//                $result .= $stat . ': ' . $value . '<br>';
-//            }
-//            $result .= '<br>';
-//        }
-//        return $result;
-//    }
-//}
-//
-//print $car->get_all_cars($cars);
+    }
+
+}
+
+function displayFishRow($array)
+
+{
+
+    foreach ($array as $key => $value) {
+
+        if ($value->type == 'Fish') {
+
+            print "
+
+<tr>
+
+<td>" . $value->type . "</td>
+
+<td>" . $value->race . "</td>
+
+<td>" . $value->color . "</td>
+
+<td>" . $value->size . "</td>
+
+</tr>
+
+";
+
+        }
+
+    }
+
+}
 
 ?>
 
-<html>
-<head>
-    <title>Person</title>
-    <style>
-        tr, td, th {
-            border: 2px solid black;
-            border-collapse: collapse;
-            padding: 10px;
-        }
-    </style>
-</head>
-<body>
-<body>
-<table>
-    <?php get_table($zoo, 'gyvunas'); ?>
-</table>
-<table>
-    <?php get_table($zoo, 'paukstis'); ?>
-</table>
-</body>
-</body>
-</html>
+<div class="mx-auto text-center pt-5 d-flex justify-content-around">
 
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <td>Type</td>
+
+            <td>Race</td>
+
+            <td>Color</td>
+
+            <td>Size</td>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <?php displayBirdsRow($animals); ?>
+
+        </tbody>
+
+    </table>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <td>Type</td>
+
+            <td>Race</td>
+
+            <td>Color</td>
+
+            <td>Size</td>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <?php displayFishRow($animals); ?>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<?php include "app/views/layouts/footer.php"; ?>
 
 
 
